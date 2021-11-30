@@ -11,6 +11,6 @@ BEGIN
   -- we want to show to the user. Join these tables together to show human-readable names of products to the user.
   -- only show the orderlines where the order ID equals the last overall ID just got inserted
   -- that just got created.
-  -- 2
-  -- [{"product": 1, "quantity": 9}, {"product": 46, "quantity": 99}]
+  -- first param: 2
+  -- second param[{"product": 1, "quantity": 9}, {"product": 46, "quantity": 99}]
 END
