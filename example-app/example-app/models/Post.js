@@ -65,7 +65,11 @@ Post.prototype.create = function () {
       Task #1 CREATE A POST
       You'll need: incoming.title, incoming.body, incoming.author, and incoming.createdDate
       ===============================================*/
-      const [{ insertId }] = await db.execute()
+      const [{ insertId }] = await db.execute("INSERT INTO posts (title, body, author, createdDate) VALUES (?, ?, ?, ?)"
+      , [incoming.title, incoming.body, incoming.author, incoming.createdDate])
+      // 1st param: query
+      // 2nd param: array of incoming params
+
       resolve(insertId)
     } else {
       reject(this.errors)
