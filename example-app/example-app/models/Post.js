@@ -183,7 +183,7 @@ Post.search = function (searchTerm) {
       Task #7 SEARCH FOR POSTS BY KEYWORD OR PHRASE
       You'll need: searchTerm
       ===============================================*/
-      let [posts] = await db.execute()
+      let [posts] = await db.execute("SELECT p.title, p.body, p._id, p.author, p.createdDate, u.username, u.avatar FROM ournodeapp.posts p JOIN users u ON p.author = u._id WHERE MATCH(title, body) AGAINST(?)", [searchTerm])
       resolve(posts)
     } else {
       reject()
